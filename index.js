@@ -11,7 +11,7 @@ const userInputString = prompt(
   "vanilla,vanilla,vanilla,strawberry,coffee,coffee"
 );
 
-const stringArray = userInputString.split(",");
+const stringArray = userInputString.split(',');
 
 
 // console.log(stringArray);
@@ -27,17 +27,52 @@ const stringArray = userInputString.split(",");
 //   console.log(stringArray[i]);
 // }
 
-const flavorCount = [];
-for (let i = 0; i < stringArray.length; i++){
-  const flavors = stringArray[i];
-  if (flavors in flavorCount){
-    flavorCount[flavors]++;
-  }
-  else {
-    flavorCount[flavors] = 1;
-  }
-};
+function creatOrderObjects(str) {
 
-console.table(flavorCount);
+  // 1. split the string into an array of flavors
+  const flavorsArray = str.split(',');
+
+  const order = {
+
+  }
+  // let unknown = 'vanilla'
+
+  // order[unknown] = 1
+
+  for ( let i = 0; i < stringArray.length; i++) {
+    let newFlavor = stringArray[i].trim(); // .trim removes spaces
+    
+    if (newFlavor in order) {// order exists 
+      order[newFlavor]++
+
+
+    }
+    else {
+      order[newFlavor] = 1
+
+    }
+     
+  }
+
+  return order
+
+}
+
+let froyoOrder = creatOrderObjects(userInputString)
+console.table(froyoOrder);
+
+
+// const flavorCount = [];
+// for (let i = 0; i < stringArray.length; i++){
+//   const flavors = stringArray[i];
+//   if (flavors in flavorCount){
+//     flavorCount[flavors]++;
+//   }
+//   else {
+//     flavorCount[flavors] = 1;
+//   }
+// };
+
+// console.table(flavorCount);
 
 
